@@ -1,0 +1,9 @@
+{
+  "firebase": "presentationwizard",
+  "public": "build",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
