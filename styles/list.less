@@ -1,0 +1,25 @@
+.list {
+  display: inline-block;
+  width: 400px;
+  min-height: 300px;
+  height: 100%;
+  margin-left: @padding-medium;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-small;
+  background-color: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+
+  &:last-child {
+    margin-right: @padding-medium;
+  }
+
+  header {
+    padding: @padding-small;
+    border-bottom: 1px solid @border-color;
+    background-color: @primary;
+  }
+
+  .items {
+    overflow-y: scroll;
+  }
+}
