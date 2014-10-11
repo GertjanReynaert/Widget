@@ -1,5 +1,16 @@
 .item {
-  height: auto !important;
+  height: 35px !important;
   padding: @padding-xsmall @padding-small;
   border-bottom: 1px solid @border-color;
+
+  .checkbox, p {
+    float: left;
+    margin-right: @padding-small;
+  }
+
+  .delete-item {
+    float: right;
+    padding: 3px 10px;
+    cursor: pointer;
+  }
 }
