@@ -1,16 +1,17 @@
 /** @jsx React.DOM */
 var App = React.createClass({
   getInitialState: function() {
-    return { lists: [] };
+    return { lists: this.props.data.find('List') || [] };
   },
 
   addList: function() {
-    newList = {
+    var newList = {
       title: 'Initial title',
       items: []
     };
     var newLists = this.state.lists;
     newLists.push(newList);
+    newList = this.props.data.create('List', newList);
     this.setState({ lists: newLists });
   },
 
@@ -23,7 +24,7 @@ var App = React.createClass({
   render: function() {
     var lists = this.state.lists.map(function(list, index) {
       var clickHandler = this.removeList.bind(this, index);
-      return <List key={index} title={list.title} items={list.items} deleteList={clickHandler}/>;
+      return <List key={list.id} list={list} data={this.props.data} deleteList={clickHandler} />;
     }, this);
 
     return (
