@@ -21,7 +21,7 @@ var List = React.createClass({
     }
   },
 
-  handleDelete: function(index) {
+  removeItem: function(index) {
     var items = this.state.items;
     items.splice(index, 1);
     this.setState({ items: items });
@@ -29,17 +29,20 @@ var List = React.createClass({
 
   render: function() {
     var items = this.state.items.map(function(item, index) {
-      var clickHandler = this.handleDelete.bind(this, index);
+      var clickHandler = this.removeItem.bind(this, index);
       return <Item key={index} checked={item.checked} text={item.text} deleteItem={clickHandler}/>;
     }, this);
 
     return (
       <div className="list">
-        <header>{this.props.title}</header>
+        <header>
+          {this.props.title}
+          <div className="delete-list btn danger" onClick={this.props.deleteList}>X</div>
+        </header>
         <div className="items">
           {items}
           <div className="item add-item">
-            <input type="text" onKeyDown={this.addItem} onChange={this.handleValue} value={this.state.tempItemValue}/>
+            <input type="text" onKeyDown={this.addItem} onChange={this.handleValue} value={this.state.tempItemValue} placeholder="New item"/>
           </div>
         </div>
       </div>
