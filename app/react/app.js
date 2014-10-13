@@ -14,9 +14,16 @@ var App = React.createClass({
     this.setState({ lists: newLists });
   },
 
+  removeList: function(index) {
+    var lists = this.state.lists;
+    lists.splice(index, 1);
+    this.setState({ lists: lists });
+  },
+
   render: function() {
     var lists = this.state.lists.map(function(list, index) {
-      return <List key={index} title={list.title} items={list.items}/>;
+      var clickHandler = this.removeList.bind(this, index);
+      return <List key={index} title={list.title} items={list.items} deleteList={clickHandler}/>;
     }, this);
 
     return (
