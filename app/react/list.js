@@ -39,7 +39,7 @@ var List = React.createClass({
         <div className="items">
           {items}
           <div className="item add-item">
-            <input type="text" onKeyDown={this.addItem} onChange={this.handleValue} value={this.state.tempItemValue}/>
+            <input type="text" onKeyDown={this.addItem} onChange={this.handleValue} value={this.state.tempItemValue} placeholder="New item"/>
           </div>
         </div>
       </div>
