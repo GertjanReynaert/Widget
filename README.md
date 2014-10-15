@@ -1,5 +1,6 @@
 Widget
 ======
+[![Dependency Status](https://gemnasium.com/GertjanReynaert/BZN.svg)](https://gemnasium.com/GertjanReynaert/BZN)
 
 Basic javascript app demonstrating the power of reactjs, firebase and brocoli
 
