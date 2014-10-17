@@ -1,11 +1,24 @@
 /** @jsx React.DOM */
 var Checkbox = React.createClass({
   getInitialState: function() {
-    return { checked: this.props.checked || false };
+    return {
+      checked: this.props.checked || false,
+      changed: false
+    };
   },
 
   toggleState: function() {
-    this.setState({ checked: !this.state.checked });
+    this.setState({
+      checked: !this.state.checked,
+      changed: true
+    });
+  },
+
+  componentDidUpdate: function() {
+    if (this.state.changed) {
+      this.props.handleToggle(this.state.checked);
+      this.setState({changed: false});
+    }
   },
 
   render: function() {

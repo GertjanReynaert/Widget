@@ -15,6 +15,19 @@ var appJs = pickFiles('app', {
   srcDir: '/',
   destDir: 'dist'
 });
+var data = pickFiles('app', {
+  srcDir: '/data/',
+  destDir: 'dist'
+});
+var adapters = pickFiles('app', {
+  srcDir: '/data/adapters',
+  destDir: 'dist'
+});
+var serializers = pickFiles('app', {
+  srcDir: '/data/serializers',
+  destDir: 'dist'
+});
+appJs = mergeTrees([appJs, data, adapters, serializers]);
 
 var reactJs = pickFiles('app/react', {
   srcDir: '/',

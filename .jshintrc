@@ -9,7 +9,8 @@
     "Ajax": true,
     "Api": true,
     "Sniffer": true,
-    "require": true
+    "require": true,
+    "console": true
   },
   "node": false,
   "browser": true,
