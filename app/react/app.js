@@ -5,13 +5,10 @@ var App = React.createClass({
   },
 
   addList: function() {
-    var newList = {
-      title: 'Initial title',
-      items: []
-    };
+    var newList = new TodoList('Initial title');
     var newLists = this.state.lists;
     newLists.push(newList);
-    newList = this.props.data.create('List', newList);
+    newList = this.props.data.createRecord('List', newList);
     this.setState({ lists: newLists });
   },
 

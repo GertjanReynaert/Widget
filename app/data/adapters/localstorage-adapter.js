@@ -45,7 +45,7 @@ LSAdapter.prototype.find = function(model, id) {
   return records || [];
 };
 
-LSAdapter.prototype.create = function(model, object) {
+LSAdapter.prototype.createRecord = function(model, object) {
   var newId = this.getNewIdForModel(model);
   object.id = newId;
 

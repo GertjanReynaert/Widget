@@ -26,11 +26,8 @@ var List = React.createClass({
 
   addItem: function(e) {
     if (e.keyCode === 13 && this.state.tempItemValue) {
-      var newItem = {
-        checked: false,
-        text: this.state.tempItemValue,
-      };
-      newItem = this.props.data.create('Item', newItem);
+    var newItem = new Item(this.state.tempItemValue);
+      newItem = this.props.data.createRecord('Item', newItem);
       var items = this.state.items;
       items.push(newItem);
       this.setState({

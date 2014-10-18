@@ -6,8 +6,8 @@ FirebaseAdapter.prototype.find = function(model, id) {
   console.error('LSAdapter find method is not implemented!');
 };
 
-FirebaseAdapter.prototype.create = function(model, object) {
-  console.error('LSAdapter create method is not implemented!');
+FirebaseAdapter.prototype.createRecord = function(model, object) {
+  console.error('LSAdapter createRecord method is not implemented!');
 };
 
 FirebaseAdapter.prototype.update = function(model, id, object) {

@@ -26,11 +26,11 @@ Data.prototype.find = function(model, id) {
   return this.serializer.deserialize(model, result);
 };
 
-Data.prototype.create = function(model, object) {
+Data.prototype.createRecord = function(model, object) {
   object = this.serializer.serialize(model, object);
 
   var adapter = this.adapter.getAdapter();
-  var result = adapter.create(model, object);
+  var result = adapter.createRecord(model, object);
 
   return this.serializer.deserialize(model, result);
 };
