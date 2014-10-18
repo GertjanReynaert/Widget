@@ -28,7 +28,7 @@ var Item = React.createClass({
   },
 
   deleteMe: function() {
-    this.props.data.remove('Item', this.state.item.id);
+    this.props.data.destroyRecord('Item', this.state.item.id);
     this.props.deleteItem();
   },
 

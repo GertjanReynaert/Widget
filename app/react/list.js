@@ -48,7 +48,7 @@ var List = React.createClass({
   },
 
   deleteMe: function() {
-    this.props.data.remove('List', this.state.list.id);
+    this.props.data.destroyRecord('List', this.state.list.id);
     this.props.deleteList();
   },
 

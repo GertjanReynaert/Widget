@@ -14,6 +14,6 @@ FirebaseAdapter.prototype.update = function(model, id, object) {
   console.error('LSAdapter update method is not implemented!');
 };
 
-FirebaseAdapter.prototype.remove = function(model, id) {
-  console.error('LSAdapter remove method is not implemented!');
+FirebaseAdapter.prototype.destroyRecord = function(model, id) {
+  console.error('LSAdapter destroyRecord method is not implemented!');
 };

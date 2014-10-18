@@ -73,7 +73,7 @@ LSAdapter.prototype.update = function(model, id, object) {
   localStorage.setItem(table, JSON.stringify(records));
 };
 
-LSAdapter.prototype.remove = function(model, id) {
+LSAdapter.prototype.destroyRecord = function(model, id) {
   var records = this.find(model);
 
   for(var i = 0; i < records.length; i++) {

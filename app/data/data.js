@@ -44,9 +44,9 @@ Data.prototype.update = function(model, id, object) {
   return this.serializer.deserialize(model, result);
 };
 
-Data.prototype.remove = function(model, id) {
+Data.prototype.destroyRecord = function(model, id) {
   var adapter = this.adapter.getAdapter();
-  var result = adapter.remove(model, id);
+  var result = adapter.destroyRecord(model, id);
 
   return this.serializer.deserialize(model, result);
 };
