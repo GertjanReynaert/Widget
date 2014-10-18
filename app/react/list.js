@@ -4,7 +4,7 @@ var List = React.createClass({
     return {
       list: this.props.list,
       title: this.props.list.title,
-      items: this.props.data.find('Item'),
+      items: this.props.store.find('Item'),
       changed: false
     };
   },
@@ -15,7 +15,7 @@ var List = React.createClass({
       list.title = this.state.title;
       list.items = this.state.items;
 
-      this.props.data.update('List', list.id, list);
+      this.props.store.update('List', list.id, list);
       this.setState({changed: false});
     }
   },
@@ -27,7 +27,7 @@ var List = React.createClass({
   addItem: function(e) {
     if (e.keyCode === 13 && this.state.tempItemValue) {
     var newItem = new Item(this.state.tempItemValue);
-      newItem = this.props.data.createRecord('Item', newItem);
+      newItem = this.props.store.createRecord('Item', newItem);
       var items = this.state.items;
       items.push(newItem);
       this.setState({
@@ -48,14 +48,14 @@ var List = React.createClass({
   },
 
   deleteMe: function() {
-    this.props.data.destroyRecord('List', this.state.list.id);
+    this.props.store.destroyRecord('List', this.state.list.id);
     this.props.deleteList();
   },
 
   render: function() {
     var items = this.state.items.map(function(item, index) {
       var clickHandler = this.removeItem.bind(this, index);
-      return <Item key={item.id} item={item} data={this.props.data} deleteItem={clickHandler}/>;
+      return <Item key={item.id} item={item} store={this.props.store} deleteItem={clickHandler}/>;
     }, this);
 
     return (
