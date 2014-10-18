@@ -26,6 +26,10 @@ Data.prototype.find = function(model, id) {
   return this.serializer.deserialize(model, result);
 };
 
+Data.prototype.all = function(model) {
+  return this.find(model);
+};
+
 Data.prototype.createRecord = function(model, object) {
   object = this.serializer.serialize(model, object);
 

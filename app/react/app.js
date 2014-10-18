@@ -1,7 +1,7 @@
 /** @jsx React.DOM */
 var App = React.createClass({
   getInitialState: function() {
-    return { lists: this.props.data.find('List') || [] };
+    return { lists: this.props.data.all('List') || [] };
   },
 
   addList: function() {
