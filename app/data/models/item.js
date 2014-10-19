@@ -3,5 +3,4 @@ function Item(properties) {
   this.checked = properties.checked || false;
 }
 
-var model = new Model();
-model.extend('Item', Item);
+Model.extend('Item', Item);
