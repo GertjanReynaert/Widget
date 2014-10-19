@@ -1,15 +1,7 @@
-var Item = function(title, checked) {
-  this.id = 0;
-  this.modelName = 'Item';
-  this.title = title || 'Another title';
-  this.checked = checked || false;
+function Item(properties) {
+  this.title = properties.title || 'Another title';
+  this.checked = properties.checked || false;
+}
 
-  this.toJSON = function() {
-    return {
-      id: this.id,
-      modelName: this.modelName,
-      title: this.title,
-      checked: this.checked
-    };
-  };
-};
+var model = new Model();
+model.extend('Item', Item);
