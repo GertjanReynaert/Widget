@@ -9,11 +9,15 @@ FirebaseAdapter.prototype.find = function(model, id) {
 };
 
 FirebaseAdapter.prototype.create = function(model, object) {
-  console.error('FirebaseAdapter create method is not implemented!');
+  var modelRef = this.ref.child(model);
+  var result = modelRef.push(object);
+  object.id = result.name();
+  return object;
 };
 
 FirebaseAdapter.prototype.update = function(model, id, object) {
-  console.error('FirebaseAdapter update method is not implemented!');
+  var modelRef = this.ref.child(model + '/' + id);
+  var result = modelRef.update(object);
 };
 
 FirebaseAdapter.prototype.remove = function(model, id) {

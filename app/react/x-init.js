@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-var firebaseAdapter = new FirebaseAdapter('https://presentationwizard.firebaseio.com/web/saving-data/presentationwizard/');
+var firebaseAdapter = new FirebaseAdapter('https://presentationwizard.firebaseio.com/');
 var localStorageAdapter = {
   rules: function() {
     return !navigator.onLine;
