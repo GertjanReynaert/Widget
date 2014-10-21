@@ -3,9 +3,24 @@
   padding: @padding-xsmall @padding-small;
   border-bottom: 1px solid @border-color;
 
-  .checkbox, p {
+  .checkbox {
     float: left;
     margin-right: @padding-small;
+  }
+
+  .item-text {
+    font-size: 16px;
+    width: 80% !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+
+    &:focus {
+      font-size: 12px;
+      padding: 5px !important;
+      background-color: @white !important;
+      border-color: @white !important;
+    }
   }
 
   .delete-item {
