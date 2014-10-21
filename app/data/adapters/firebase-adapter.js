@@ -6,6 +6,20 @@ function FirebaseAdapter(url) {
 
 FirebaseAdapter.prototype.find = function(model, id) {
   console.error('FirebaseAdapter find method is not implemented!');
+  return;
+  var childUrl = model + (id ? ('/' + id) : '');
+  var modelRef = this.ref.child(childUrl);
+
+  modelRef.on('value', function (snapshot) {
+    var results = snapshot.val();
+    for( result in results) {
+      var item = results[result];
+      console.log(item);
+    }
+    debugger;
+  }, function (errorObject) {
+    console.log('FirebaseAdapter: The read failed: ' + errorObject.code);
+  });
 };
 
 FirebaseAdapter.prototype.create = function(model, object) {
