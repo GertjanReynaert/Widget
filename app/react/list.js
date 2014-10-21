@@ -50,6 +50,17 @@ var List = React.createClass({
     });
   },
 
+  handleTitleValue: function(e) {
+    this.setState({ title: e.target.value });
+  },
+
+  saveListTitle: function(e) {
+    if (e.keyCode === 13) {
+      this.setState({ changed: true});
+      e.target.blur();
+    }
+  },
+
   deleteMe: function() {
     this.props.data.remove('List', this.state.list.id);
     this.props.deleteList();
@@ -64,7 +75,7 @@ var List = React.createClass({
     return (
       <div className="list">
         <header>
-          {this.state.title}
+          <input className="list-title" type="text" onKeyDown={this.saveListTitle} onChange={this.handleTitleValue} value={this.state.title}/>
           <div className="delete-list btn danger" onClick={this.deleteMe}>X</div>
         </header>
         <div className="items">

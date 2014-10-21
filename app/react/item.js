@@ -27,6 +27,17 @@ var Item = React.createClass({
     });
   },
 
+  handleTextValue: function(e) {
+    this.setState({ text: e.target.value });
+  },
+
+  saveItemText: function(e) {
+    if (e.keyCode === 13) {
+      this.setState({ changed: true});
+      e.target.blur();
+    }
+  },
+
   deleteMe: function() {
     this.props.data.remove('Item', this.state.item.id);
     this.props.deleteItem();
@@ -36,7 +47,7 @@ var Item = React.createClass({
     return (
       <div className="item">
         <Checkbox checked={this.state.checked} handleToggle={this.toggleCheckbox}/>
-        <p>{this.state.text}</p>
+        <input className="item-text" type="text" onKeyDown={this.saveItemText} onChange={this.handleTextValue} value={this.state.text}/>
         <div className="delete-item btn danger" onClick={this.deleteMe}>X</div>
       </div>
     );
