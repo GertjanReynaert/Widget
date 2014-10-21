@@ -66,8 +66,19 @@ var List = React.createClass({
     this.props.deleteList();
   },
 
+  compareItems:function(item1, item2) {
+    if(item1.checked === item2.checked) {
+      return 0;
+    } else if (item1.checked && !item2.checked) {
+      return -1;
+    } else if (!item1.checked && item2.checked) {
+      return 1;
+    }
+  },
+
   render: function() {
-    var items = this.state.items.map(function(item, index) {
+    var items = this.state.items.sort(this.compareItems);
+    items = items.map(function(item, index) {
       var clickHandler = this.removeItem.bind(this, index);
       return <Item key={item.id} item={item} data={this.props.data} deleteItem={clickHandler}/>;
     }, this);

@@ -44,10 +44,12 @@ var Item = React.createClass({
   },
 
   render: function() {
+    var textClass = 'item-text' + (this.state.checked ? ' done' : '');
+    var disabled = this.state.checked ? 'disabled' : false;
     return (
       <div className="item">
         <Checkbox checked={this.state.checked} handleToggle={this.toggleCheckbox}/>
-        <input className="item-text" type="text" onKeyDown={this.saveItemText} onChange={this.handleTextValue} value={this.state.text}/>
+        <input className={textClass} type="text" onKeyDown={this.saveItemText} onChange={this.handleTextValue} value={this.state.text} disabled={disabled}/>
         <div className="delete-item btn danger" onClick={this.deleteMe}>X</div>
       </div>
     );
