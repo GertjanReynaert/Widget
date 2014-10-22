@@ -31,9 +31,10 @@ FirebaseAdapter.prototype.create = function(model, object) {
 
 FirebaseAdapter.prototype.update = function(model, id, object) {
   var modelRef = this.ref.child(model + '/' + id);
-  var result = modelRef.update(object);
+  modelRef.update(object);
 };
 
 FirebaseAdapter.prototype.remove = function(model, id) {
-  console.error('FirebaseAdapter remove method is not implemented!');
+  var modelRef = this.ref.child(model + '/' + id);
+  modelRef.remove();
 };
