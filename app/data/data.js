@@ -50,3 +50,4 @@ Data.prototype.remove = function(model, id) {
 
   return this.serializer.deserialize(model, result);
 };
+

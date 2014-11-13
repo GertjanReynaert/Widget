@@ -4,7 +4,7 @@ var List = React.createClass({
     return {
       list: this.props.list,
       title: this.props.list.title,
-      items: this.props.data.find('Item'),
+      items: this.props.data.find('Item') || [],
       changed: false
     };
   },
