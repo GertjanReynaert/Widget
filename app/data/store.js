@@ -1,4 +1,4 @@
-function Data(adapters, serializers) {
+function Store(adapters, serializers) {
   this.adapter = new AdapterManager();
   this.serializer = new Serializer();
 
@@ -19,23 +19,27 @@ function Data(adapters, serializers) {
   }
 }
 
-Data.prototype.find = function(model, id) {
+Store.prototype.find = function(model, id) {
   var adapter = this.adapter.getAdapter();
   var result = adapter.find(model, id);
 
   return this.serializer.deserialize(model, result);
 };
 
-Data.prototype.create = function(model, object) {
+Store.prototype.all = function(model) {
+  return this.find(model);
+};
+
+Store.prototype.createRecord = function(model, object) {
   object = this.serializer.serialize(model, object);
 
   var adapter = this.adapter.getAdapter();
-  var result = adapter.create(model, object);
+  var result = adapter.createRecord(model, object);
 
   return this.serializer.deserialize(model, result);
 };
 
-Data.prototype.update = function(model, id, object) {
+Store.prototype.update = function(model, id, object) {
   object = this.serializer.serialize(model, object);
 
   var adapter = this.adapter.getAdapter();
@@ -44,9 +48,9 @@ Data.prototype.update = function(model, id, object) {
   return this.serializer.deserialize(model, result);
 };
 
-Data.prototype.remove = function(model, id) {
+Store.prototype.destroyRecord = function(model, id) {
   var adapter = this.adapter.getAdapter();
-  var result = adapter.remove(model, id);
+  var result = adapter.destroyRecord(model, id);
 
   return this.serializer.deserialize(model, result);
 };

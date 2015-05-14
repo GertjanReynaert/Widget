@@ -45,7 +45,7 @@ LSAdapter.prototype.find = function(model, id) {
   return records || [];
 };
 
-LSAdapter.prototype.create = function(model, object) {
+LSAdapter.prototype.createRecord = function(model, object) {
   var newId = this.getNewIdForModel(model);
   object.id = newId;
 
@@ -73,7 +73,7 @@ LSAdapter.prototype.update = function(model, id, object) {
   localStorage.setItem(table, JSON.stringify(records));
 };
 
-LSAdapter.prototype.remove = function(model, id) {
+LSAdapter.prototype.destroyRecord = function(model, id) {
   var records = this.find(model);
 
   for(var i = 0; i < records.length; i++) {

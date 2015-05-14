@@ -15,7 +15,7 @@ var Item = React.createClass({
       item.text = this.state.text;
       item.checked = this.state.checked;
 
-      this.props.data.update('Item', item.id, item);
+      this.props.store.update('Item', item.id, item);
       this.setState({changed: false});
     }
   },
@@ -39,7 +39,7 @@ var Item = React.createClass({
   },
 
   deleteMe: function() {
-    this.props.data.remove('Item', this.state.item.id);
+    this.props.store.destroyRecord('Item', this.state.item.id);
     this.props.deleteItem();
   },
 

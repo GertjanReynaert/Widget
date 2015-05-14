@@ -9,6 +9,6 @@ var localStorageAdapter = {
 var adapters = [localStorageAdapter, firebaseAdapter];
 var serializers = [ListSerializer];
 
-var data = new Data(adapters, serializers);
+var store = new Store(adapters, serializers);
 
-React.renderComponent(<App data={data}/>, document.getElementById('app'));
+React.renderComponent(<App store={store}/>, document.getElementById('app'));
